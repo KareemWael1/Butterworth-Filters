@@ -1,0 +1,27 @@
+//Step 1
+
+f0 = 440;
+alpha = 2^(1/12);
+fDO = f0*(alpha^-9);
+fRE=f0*(alpha^-7);
+fMI=f0*(alpha^-5);
+fFA=f0*(alpha^-4);
+fs = 10*fFA    
+// Step 1 End
+
+//Step 2 and 3
+
+frmsz=2048;  					 
+t=(0:1:frmsz-1)*(0.5);    		 
+x1t=cos(2*pi*fDO*t);
+x2t=cos(2*pi*fRE*t);
+x3t=cos(2*pi*fMI*t);
+x4t=cos(2*pi*fFA*t);
+xt=[x1t,x2t,x3t,x4t];
+frmsz=8192;
+t=(0:1:frmsz-1)*(0.5);
+plot(t,xt);                   //Step 3 requirement
+
+Sound = 'sound.wav';
+audiowrite(Sound,xt,fs);      //Step 2 requirement
+//Step 2 and 3 end
