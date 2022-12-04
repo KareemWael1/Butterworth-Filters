@@ -7,14 +7,14 @@ fRE = f0*(alpha^-7)
 fMI = f0*(alpha^-5)
 fFA = f0*(alpha^-4)
 
-frmsz=2048;
-t=(0:1:frmsz-1)*(0.5/frmsz);
+fs = 10 * max([fDO, fRE, fMI, fFA])
+
+frmsz=round(0.5*fs);
+t=(0:1:frmsz-1)*(1/fs);
 x1t=cos(2*pi*fDO*t);
 x2t=cos(2*pi*fRE*t);
 x3t=cos(2*pi*fMI*t);
 x4t=cos(2*pi*fFA*t);
-
-fs = 10 * max([fDO, fRE, fMI, fFA])
 
 
 % Step 2
@@ -24,7 +24,7 @@ audiowrite("signal.wav",xt,frmsz*2);
 
 % Step 3
 frmsz=frmsz*4;
-t=(0:1:frmsz-1)*(2/frmsz);
+t=(0:1:frmsz-1)*(1/fs);
 plot(t,xt)
 ylim([-1 1]);
 
