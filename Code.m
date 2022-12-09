@@ -7,7 +7,7 @@ fRE = f0*(alpha^-7)
 fMI = f0*(alpha^-5)
 fFA = f0*(alpha^-4)
 
-fs = 10 * max([fDO, fRE, fMI, fFA])
+fs = round(10 * max([fDO, fRE, fMI, fFA]))
 
 frmsz=round(0.5*fs);
 t=(0:1:frmsz-1)*(1/fs);
@@ -19,14 +19,14 @@ x4t=cos(2*pi*fFA*t);
 
 % Step 2
 xt=[x1t,x2t,x3t,x4t];
-audiowrite("signal.wav",xt,frmsz*2);
+audiowrite("signal.wav",xt,fs);
+sound(xt, fs)
 
 
 % Step 3
 frmsz=frmsz*4;
 t=(0:1:frmsz-1)*(1/fs);
 plot(t,xt)
-ylim([-1 1]);
 
 
 % Step 4
@@ -73,7 +73,8 @@ y1t = filter(b,a,xt);
 
 
 % Step 11
-audiowrite("lowpassfiltered.wav", y1t, frmsz/2)
+audiowrite("lowpassfiltered.wav", y1t, fs)
+sound(y1t, fs)
 
 
 % Step 12
