@@ -41,6 +41,7 @@ Xf = fftshift(fft(xt,frmsz)) / frmsz;
 f = (-(frmsz/2):1:(frmsz/2)-1)*(fs/frmsz);
 figure;
 plot(f, abs(Xf))
+xlim([-500 500])
 
 
 % Step 7
@@ -92,7 +93,8 @@ Y1f = fftshift(fft(y1t,frmsz)) / frmsz;
 
 % Step 15
 figure;
-plot(f, Y1f)
+plot(f, abs(Y1f))
+xlim([-500 500])
 
 
 % Step 16
