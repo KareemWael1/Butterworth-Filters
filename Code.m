@@ -16,7 +16,6 @@ x2t=cos(2*pi*fRE*t);
 x3t=cos(2*pi*fMI*t);
 x4t=cos(2*pi*fFA*t);
 
-
 % Step 2
 xt=[x1t,x2t,x3t,x4t];
 audiowrite("signal.wav",xt,fs);
@@ -30,7 +29,7 @@ plot(t,xt)
 
 
 % Step 4
-E_xt = sum(abs(xt).^2)*(1/frmsz)
+E_xt = sum(abs(xt).^2)*(1/fs)
 
 
 % Step 5
@@ -45,7 +44,7 @@ xlim([-500 500])
 
 
 % Step 7
-E_Xf = sum((abs(Xf).^2))
+E_Xf = sum((abs(Xf).^2))/(fs/frmsz)
 
 
 
@@ -84,7 +83,7 @@ plot(t, y1t)
 
 
 % Step 13
-E_y1t = sum((abs(y1t).^2)) * (1/frmsz)
+E_y1t = sum((abs(y1t).^2)) * (1/fs)
 
 
 % Step 14
@@ -98,5 +97,5 @@ xlim([-500 500])
 
 
 % Step 16
-E_Y1f = sum((abs(Y1f).^2))
+E_Y1f = sum((abs(Y1f).^2))/(fs/frmsz)
 
