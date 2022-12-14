@@ -46,8 +46,6 @@ xlim([-500 500])
 % Step 7
 E_Xf = sum((abs(Xf).^2))/(fs/frmsz)
 
-
-
 %%% Low-Pass Filter %%%
 
 
@@ -99,3 +97,52 @@ xlim([-500 500])
 % Step 16
 E_Y1f = sum((abs(Y1f).^2))/(fs/frmsz)
 
+
+%%% high-Pass Filter %%%
+
+% Step 17
+a = 0;
+b = 0;
+order = 20;
+fc = (fRE + fMI) / 2                % cut-off frequency = 311.65 Hz
+[b,a]= butter(order, fc / (fs/2),'high');
+
+
+% Step 18
+figure;
+freqz(b,a,[],fs)
+subplot(2,1,1)
+xlim([0 1000])
+ylim([-100 10])
+
+
+% Step 19
+y2t = filter(b,a,xt);
+
+
+% Step 20
+audiowrite("highpassfiltered.wav", y2t, fs)
+sound(y2t, fs)
+
+
+% Step 21
+figure;
+plot(t, y2t)
+
+
+% Step 22
+E_y2t = sum((abs(y2t).^2)) * (1/fs)
+
+
+% Step 23
+Y2f = fftshift(fft(y2t,frmsz)) / frmsz;
+
+
+% Step 24
+figure;
+plot(f, abs(Y2f))
+xlim([-500 500])
+
+
+% Step 25
+E_Y2f = sum((abs(Y2f).^2))/(fs/frmsz)
