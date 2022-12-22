@@ -26,6 +26,8 @@ sound(xt, fs)
 frmsz=frmsz*4;
 t=(0:1:frmsz-1)*(1/fs);
 plot(t,xt)
+xlabel("t",'FontSize',20)
+ylabel("x(t)",'FontSize',20)
 
 
 % Step 4
@@ -41,6 +43,8 @@ f = (-(frmsz/2):1:(frmsz/2)-1)*(fs/frmsz);
 figure;
 plot(f, abs(Xf))
 xlim([-500 500])
+xlabel("f",'FontSize',20)
+ylabel("X(f)",'FontSize',20)
 
 
 % Step 7
@@ -78,7 +82,8 @@ sound(y1t, fs)
 % Step 12
 figure;
 plot(t, y1t)
-
+xlabel("t",'FontSize',20)
+ylabel("y1(t)",'FontSize',20)
 
 % Step 13
 E_y1t = sum((abs(y1t).^2)) * (1/fs)
@@ -92,6 +97,8 @@ Y1f = fftshift(fft(y1t,frmsz)) / frmsz;
 figure;
 plot(f, abs(Y1f))
 xlim([-500 500])
+xlabel("f",'FontSize',20)
+ylabel("Y1(f)",'FontSize',20)
 
 
 % Step 16
@@ -128,6 +135,8 @@ sound(y2t, fs)
 % Step 21
 figure;
 plot(t, y2t)
+xlabel("t",'FontSize',20)
+ylabel("y2(t)",'FontSize',20)
 
 
 % Step 22
@@ -142,6 +151,8 @@ Y2f = fftshift(fft(y2t,frmsz)) / frmsz;
 figure;
 plot(f, abs(Y2f))
 xlim([-500 500])
+xlabel("f",'FontSize',20)
+ylabel("Y2(f)",'FontSize',20)
 
 
 % Step 25
