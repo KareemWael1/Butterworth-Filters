@@ -44,7 +44,7 @@ figure;
 plot(f, abs(Xf))
 xlim([-500 500])
 xlabel("f",'FontSize',20)
-ylabel("X(f)",'FontSize',20)
+ylabel("|X(f)|",'FontSize',20)
 
 
 % Step 7
@@ -95,7 +95,7 @@ figure;
 plot(f, abs(Y1f))
 xlim([-500 500])
 xlabel("f",'FontSize',20)
-ylabel("Y1(f)",'FontSize',20)
+ylabel("|Y1(f)|",'FontSize',20)
 
 
 % Step 16
@@ -146,7 +146,7 @@ figure;
 plot(f, abs(Y2f))
 xlim([-500 500])
 xlabel("f",'FontSize',20)
-ylabel("Y2(f)",'FontSize',20)
+ylabel("|Y2(f)|",'FontSize',20)
 
 
 % Step 25
