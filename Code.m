@@ -64,10 +64,7 @@ fc = (fRE + fMI) / 2                % cut-off frequency = 311.65 Hz
 
 % Step 9
 figure;
-freqz(b,a,[],fs)
-subplot(2,1,1)
-xlim([0 1000])
-ylim([-100 10])
+freqz(b,a,f,fs)
 
 
 % Step 10
@@ -117,10 +114,7 @@ fc = (fRE + fMI) / 2                % cut-off frequency = 311.65 Hz
 
 % Step 18
 figure;
-freqz(b,a,[],fs)
-subplot(2,1,1)
-xlim([0 1000])
-ylim([-100 10])
+freqz(b,a,f,fs)
 
 
 % Step 19
